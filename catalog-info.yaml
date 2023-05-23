@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bancswissunique2-bancswissunique2-poi-map-app-dev
+  annotations:
+    argocd/app-name: bancswissunique2-bancswissunique2-poi-map-app-dev
+    backstage.io/kubernetes-id: bancswissunique2-bancswissunique2-poi-map-app-dev
+    backstage.io/kubernetes-namespace: bancswissunique2
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/instance=bancswissunique2-bancswissunique2-poi-map-app-dev'
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: Summit23Janus2/bancswissunique2-frontend
+    janus-idp.io/tekton-enabled: 'true'
+  tags:
+    - typescript
+    - angular
+    - workshop
+  links:
+    - url: https://console-openshift-console.apps.summit23blues.6mbu.p1.openshiftapps.com/dev-pipelines/ns/bancswissunique2/
+      title: Pipelines
+      icon: web
+    - url: https://console-openshift-console.apps.summit23blues.6mbu.p1.openshiftapps.com/k8s/ns/bancswissunique2/deployments/bancswissunique2-poi-map-app
+      title: Deployment
+      icon: web
+    - url: https://devspaces.apps.summit23blues.6mbu.p1.openshiftapps.com/#https://github.com/Summit23Janus2/bancswissunique2-frontend?che-editor=che-incubator/che-code/latest&devfilePath=.devfile-vscode.yaml
+      title: OpenShift Dev Spaces (VS Code)
+      icon: web
+    - url: http://bancswissunique2-poi-map-app-bancswissunique2.apps.summit23blues.6mbu.p1.openshiftapps.com
+      title: Map
+      icon: web
+spec:
+  type: service
+  lifecycle: production
+  owner: "user:default/bancswissunique2"
+  system: workshop-system-bancswissunique2
+  consumesApis:
+    - gateway-api-bancswissunique2
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: workshop-system-bancswissunique2
+  tags:
+    - backstage
+    - janus-idp
+    - openshift
+    - workshop
+    - rh-summit
+spec:
+  owner: "user:default/bancswissunique2"
